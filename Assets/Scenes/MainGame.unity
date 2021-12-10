@@ -265,13 +265,13 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 4
+  m_LinearDrag: 3
   m_AngularDrag: 0
-  m_GravityScale: 1
+  m_GravityScale: 6
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &1253760674
 BoxCollider2D:
@@ -378,7 +378,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 1253760673}
   characterCollider: {fileID: 1253760674}
-  xAcceleration: 10
+  xAcceleration: 1.2
   yAcceleration: 1000
 --- !u!1 &1337156497
 GameObject:
