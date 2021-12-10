@@ -10,16 +10,18 @@ public class CharacterMovement : MonoBehaviour
     public Collider2D characterCollider;
 
     public float xAcceleration;
-    public float yAcceleration;
-    private Vector2 characterSpeed = Vector2.zero;
-    private Vector2 jumpSpeed = Vector2.zero;
+    public float yForce;
+    private Vector2 jumpSpeed;
+
+    private bool isGrounded = true;
 
     void Awake() {
-         jumpSpeed = new Vector2(0, yAcceleration);
+         jumpSpeed = new Vector2(0, yForce);
     }
         
     void Update()
     {
+
         if (Input.GetKey(KeyCode.RightArrow)) {
             rb.velocity = new Vector2(Mathf.Clamp(rb.velocity.x + xAcceleration, 0, MAX_SPEED), rb.velocity.y);
         }
@@ -28,5 +30,9 @@ public class CharacterMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.UpArrow))
             rb.AddForce(jumpSpeed);
+        if (Input.GetKeyUp(KeyCode.UpArrow)){
+            if(rb.velocity.y > 7)
+            rb.velocity = new Vector2(rb.velocity.x, 7);
+        }
     }
 }
